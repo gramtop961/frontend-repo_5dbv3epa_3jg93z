@@ -5,9 +5,9 @@ import { Share2, ExternalLink } from 'lucide-react';
 export default function Hero() {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden bg-black text-white">
-      {/* 3D background */}
+      {/* 3D background - red futuristic cover */}
       <div className="absolute inset-0">
-        <Spline scene="https://prod.spline.design/ezRAY9QD27kiJcur/scene.splinecode" style={{ width: '100%', height: '100%' }} />
+        <Spline scene="https://prod.spline.design/hinHjJppKaZFIbCr/scene.splinecode" style={{ width: '100%', height: '100%' }} />
       </div>
 
       {/* overlays - ensure interactions pass through */}
