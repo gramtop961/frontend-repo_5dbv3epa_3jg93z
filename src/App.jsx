@@ -5,21 +5,19 @@ import Services from './components/Services';
 import CaseStudies from './components/CaseStudies';
 import Contact from './components/Contact';
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen bg-black font-inter">
+    <div className="min-h-screen bg-black font-inter text-white">
       <Navbar />
-      <Hero />
-      <Services />
-      <CaseStudies />
-      <Contact />
-      <footer className="bg-black py-10 text-center text-sm text-gray-400">
-        <p>
-          © {new Date().getFullYear()} BERLIN'S STORE — Digital Marketing in Red. Built for the future.
-        </p>
+      <main>
+        <Hero />
+        <Services />
+        <CaseStudies />
+        <Contact />
+      </main>
+      <footer className="border-t border-white/10 bg-black/60 py-8 text-center text-sm text-white/60">
+        © {new Date().getFullYear()} BERLIN’S STORE — Secure midman for digital trades and Roblox items.
       </footer>
     </div>
   );
 }
-
-export default App;

@@ -1,53 +1,54 @@
 import React from 'react';
+import { Shield, BarChart3, ThumbsUp } from 'lucide-react';
 
 const cases = [
   {
-    brand: 'NeonTech',
-    result: '+312% ROAS',
-    desc: 'Scaled paid acquisition with red‑hot creative testing and LTV‑driven bidding.',
+    title: '1,200+ Safe Roblox Trades',
+    metric: '99.6% success rate',
+    icon: Shield,
+    blurb: 'Escrowed limiteds, game passes, and cross-platform items with near-perfect completion.'
   },
   {
-    brand: 'UrbanWear',
-    result: '7.5x CAC Efficiency',
-    desc: 'Built a modular ad system and UGC pipeline to dominate seasonal drops.',
+    title: 'Faster Closings',
+    metric: 'under 7 minutes avg',
+    icon: BarChart3,
+    blurb: 'We streamline verification so both sides finish the deal quickly and confidently.'
   },
   {
-    brand: 'Vortex Audio',
-    result: '2.1M Views',
-    desc: 'Cinematic short‑form spots that converted attention directly to checkouts.',
-  },
+    title: 'Community Trust',
+    metric: '4.9/5 rating',
+    icon: ThumbsUp,
+    blurb: 'Reputation built on transparency and responsive support throughout the trade.'
+  }
 ];
 
-function CaseStudies() {
+export default function CaseStudies() {
   return (
-    <section id="cases" className="relative bg-black py-20 text-white">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(220,38,38,0.08),transparent_60%)]" />
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
-        <div className="mb-10 flex items-end justify-between">
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Case Studies</h2>
-            <p className="mt-2 max-w-2xl text-gray-400">Proof that aesthetics and performance can coexist.</p>
-          </div>
-          <a href="#contact" className="hidden rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-semibold text-white backdrop-blur transition hover:bg-white/10 md:block">
-            Work With Us
-          </a>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {cases.map((c) => (
-            <div key={c.brand} className="group rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.06] to-transparent p-6 transition hover:border-red-500/40">
-              <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold">{c.brand}</h3>
-                <span className="rounded-full bg-red-600/20 px-3 py-1 text-xs text-red-300">{c.result}</span>
-              </div>
-              <p className="mt-3 text-sm text-gray-300">{c.desc}</p>
-              <div className="mt-6 h-36 rounded-xl bg-[linear-gradient(135deg,rgba(220,38,38,0.25),transparent_40%)] ring-1 ring-inset ring-white/10" />
+    <section id="cases" className="relative z-10 mx-auto max-w-7xl px-6 pb-24 text-white">
+      <div className="mb-10">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Proof of Work</h2>
+        <p className="mt-2 max-w-2xl text-white/70">Highlights from recent midman operations and Roblox item deals.</p>
+      </div>
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {cases.map(({ title, metric, icon: Icon, blurb }) => (
+          <div key={title} className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition hover:border-red-500/50">
+            <div className="pointer-events-none absolute -inset-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden>
+              <div className="h-full w-full bg-gradient-to-br from-red-600/20 via-red-500/10 to-transparent" />
             </div>
-          ))}
-        </div>
+            <div className="relative z-10">
+              <div className="mb-3 inline-flex items-center gap-2 text-red-400">
+                <Icon className="h-5 w-5" />
+                <span className="text-xs uppercase tracking-wider">Case Study</span>
+              </div>
+              <h3 className="text-xl font-semibold">{title}</h3>
+              <p className="mt-1 text-sm text-white/70">{blurb}</p>
+              <div className="mt-4 inline-flex rounded-lg border border-red-500/30 bg-red-600/10 px-3 py-1 text-sm text-red-300">
+                {metric}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
 }
-
-export default CaseStudies;

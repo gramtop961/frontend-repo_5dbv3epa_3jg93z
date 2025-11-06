@@ -1,61 +1,41 @@
 import React, { useState } from 'react';
+import { Send } from 'lucide-react';
 
-function Contact() {
+export default function Contact() {
   const [status, setStatus] = useState('');
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    setStatus('Thanks — we\'ll get back to you shortly.');
-  };
+    setStatus('Thanks! We will get back to you shortly.');
+  }
 
   return (
-    <section id="contact" className="relative bg-black py-20 text-white">
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_bottom_left,rgba(220,38,38,0.08),transparent_60%)]" />
-      <div className="relative z-10 mx-auto max-w-5xl px-6">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Let\'s build your next breakthrough</h2>
-          <p className="mt-2 text-gray-400">Tell us about your brand and goals. We\'ll craft a tailored plan.</p>
-        </div>
-
-        <form onSubmit={handleSubmit} className="mx-auto grid max-w-3xl gap-4 sm:grid-cols-2">
-          <input
-            required
-            className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-red-500/60 focus:outline-none"
-            placeholder="Your name"
-          />
-          <input
-            type="email"
-            required
-            className="rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-red-500/60 focus:outline-none"
-            placeholder="Email address"
-          />
-          <input
-            className="sm:col-span-2 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-red-500/60 focus:outline-none"
-            placeholder="Company / Brand"
-          />
-          <textarea
-            rows="4"
-            className="sm:col-span-2 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-red-500/60 focus:outline-none"
-            placeholder="What are you trying to achieve?"
-          />
-          <div className="sm:col-span-2 flex items-center justify-between">
-            <p className="text-xs text-gray-400">We typically respond within 24 hours.</p>
-            <button
-              type="submit"
-              className="rounded-full bg-red-600 px-6 py-3 text-sm font-semibold text-white shadow-[0_0_25px_rgba(220,38,38,0.35)] transition hover:bg-red-500"
-            >
-              Request Proposal
-            </button>
-          </div>
-          {status && (
-            <div className="sm:col-span-2 rounded-lg border border-green-500/20 bg-green-500/10 px-4 py-3 text-sm text-green-300">
-              {status}
-            </div>
-          )}
-        </form>
+    <section id="contact" className="relative z-10 mx-auto max-w-3xl px-6 pb-24 text-white">
+      <div className="mb-8 text-center">
+        <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Start an Escrow</h2>
+        <p className="mt-2 text-white/70">Tell us about the trade. We’ll guide both sides through a safe, quick process.</p>
       </div>
+
+      <form onSubmit={handleSubmit} className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div>
+            <label className="mb-1 block text-sm text-white/70">Your Discord / Email</label>
+            <input required type="text" className="w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none ring-red-500/40 placeholder:text-white/40 focus:ring-2" placeholder="@username or name@mail.com" />
+          </div>
+          <div>
+            <label className="mb-1 block text-sm text-white/70">Counterparty Contact</label>
+            <input required type="text" className="w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none ring-red-500/40 placeholder:text-white/40 focus:ring-2" placeholder="Their Discord / Email" />
+          </div>
+        </div>
+        <div className="mt-4">
+          <label className="mb-1 block text-sm text-white/70">Item / Deal Details</label>
+          <textarea required rows={5} className="w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm outline-none ring-red-500/40 placeholder:text-white/40 focus:ring-2" placeholder="Roblox item, value, terms, and any proof links"></textarea>
+        </div>
+        <button type="submit" className="mt-5 inline-flex items-center gap-2 rounded-lg bg-red-600 px-4 py-2 text-sm font-semibold hover:bg-red-500 transition-colors">
+          <Send className="h-4 w-4" /> Submit Request
+        </button>
+        {status && <p className="mt-3 text-sm text-green-400">{status}</p>}
+      </form>
     </section>
   );
 }
-
-export default Contact;
